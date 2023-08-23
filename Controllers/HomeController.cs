@@ -11,8 +11,10 @@ namespace SimplyDebug.Controllers {
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index() {
             ViewBag.Request = Request;
+            
             /*
             foreach(KeyValuePair<string,string> tk in Request.Query) {
                 tk.

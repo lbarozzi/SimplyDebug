@@ -2,18 +2,33 @@
     ViewData["Title"] = "Home Page";
 }
 
+<h3>Http Method: @ViewBag.Request.Method</h3>
 
-@foreach(var  tk in ViewBag.Request.Query) {
-<div class="card">
-    <div class="card-header">Key: @tk.Key</div>
-    <div class="card-body">
-        @tk.Value
+@foreach (var tk in ViewBag.Request.Query)
+{
+    <div class="card">
+        <div class="card-header">Key: @tk.Key</div>
+        <div class="card-body">
+            @tk.Value
+        </div>
+        <div class="card-footer"></div>
     </div>
-    <div class="card-footer"></div>
-</div>
+}
+
+@if (ViewBag.Request.HasFormContentType){
+    @foreach (var tk in ViewBag.Request.Form) {
+        <div class="card">
+            <div class="card-header">Key: @tk.Key</div>
+            <div class="card-body">
+                @tk.Value
+            </div>
+            <div class="card-footer"></div>
+        </div>
+    }
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     Call this page ( GET or POST ) with any parameters to view data send to server
+    <a href="/testpage.html">Test Page</a>
 </div>
