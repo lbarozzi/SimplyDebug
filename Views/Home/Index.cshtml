@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@foreach(var  tk in ViewBag.Request.Query) {
+<div class="card">
+    <div class="card-header">Key: @tk.Key</div>
+    <div class="card-body">
+        @tk.Value
+    </div>
+    <div class="card-footer"></div>
+</div>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    Call this page ( GET or POST ) with any parameters to view data send to server
+</div>
